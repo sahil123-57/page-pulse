@@ -4,7 +4,9 @@ A production-grade URL audit service — built for the Digital Heroes SDE task.
 
 Given a URL, it fetches the page and returns key diagnostics: status code, response time, HTTPS usage, page size, title, and meta description.
 
-**Live URL:** _[add your Render URL here once deployed]_
+**Live URL:** https://page-pulse-mekv.onrender.com
+
+> Note: hosted on Render's free tier, which spins down after inactivity. The first request after idling may take 30-50 seconds to respond while the instance wakes up.
 
 ## Features
 
@@ -105,4 +107,4 @@ npm test
 
 ## AI usage disclosure
 
-_[We'll write this together next]_
+I used Claude to scaffold the initial project structure and get working implementations of the validation, caching, and error-handling layers, since I hadn't built a production-hardened Express service like this before. Along the way I hit and personally debugged several real issues: a zod version mismatch that was silently causing 500s instead of 400s (traced by adding debug logging), a broken GitHub Actions workflow with no trigger defined, and a TypeScript `moduleResolution` deprecation that broke the CI build under a newer TS version but not locally. I wrote the README's assumptions section and made the scope call on what "audit" means for this service myself.
